@@ -1,19 +1,17 @@
-# three-js-webpack
+# DXF-creation-poc-1st
 
-Starter project for Three.JS. Configured with Webpack 4 as a bundler.
-
-Great and easy way to bootstrap your Three.JS project.
+A POC project for testing the possiblity to combine three.js & dxf writer based on Starter project for Three.JS. Configured with Webpack 4 as a bundler.
 
 ## Development
 
 Clone the project and install dependencies:
 
 ```bash
-git clone https://github.com/aakatev/three-js-webpack.git
+git clone https://github.com/aakatev/https://github.com/leviskim17/dxf_creation_poc_1st.git
 npm i
 ```
 
-Start webpack development server:
+Start development server:
 
 ```bash
 npm run start
