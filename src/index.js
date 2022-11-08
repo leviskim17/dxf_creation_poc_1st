@@ -7,6 +7,8 @@ import { GUI } from 'three/examples/jsm/libs/lil-gui.module.min.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { TransformControls } from 'three/examples/jsm/controls/TransformControls.js';
 
+import { saveAs } from 'file-saver';
+
 const Drawing = require('dxf-writer');
 const fs = require("fs");
 //import * as Drawing from 'dxf-writer'
@@ -275,36 +277,23 @@ if (WEBGL.isWebGLAvailable()) {
   }
 
   function exportSpline() {
-
-    // const strplace = [];
-
-    // for ( let i = 0; i < splinePointsLength; i ++ ) {
-
-    //   const p = splineHelperObjects[ i ].position;
-    //   strplace.push( `new THREE.Vector3(${p.x}, ${p.y}, ${p.z})` );
-
-    // }
-
-    // console.log( strplace.join( ',\n' ) );
-    // const code = '[' + ( strplace.join( ',\n\t' ) ) + ']';
-    // prompt( 'copy and paste code', code );
-
-
     let d = new Drawing();
 
     d.setUnits('Decimeters');
-    d.drawText(10, 0, 10, 0, 'Hello World'); // draw text in the default layer named "0"
+    d.drawText(10, 0, 10, 0, 'Made by DXF WRITER');
     d.addLayer('l_green', Drawing.ACI.GREEN, 'CONTINUOUS');
     d.setActiveLayer('l_green');
-    d.drawText(20, -70, 10, 0, 'go green!');
-    
-    //or fluent
-    d.addLayer('l_yellow', Drawing.ACI.YELLOW, 'DOTTED')
-     .setActiveLayer('l_yellow')
-     .drawCircle(50, -30, 25);
 
-     console.log(d.toDxfString());
+    for ( let i = 0; i < splinePointsLength - 1; i ++ ) {
+      const p = splineHelperObjects[ i ].position;
+      const np = splineHelperObjects[ i + 1 ].position;
+      d.drawLine3d(p.x, p.y, p.z, np.x, np.y, np.z);
+    }
 
+    console.log(d.toDxfString());
+
+    let blob = new Blob([d.toDxfString()], {type: 'text/plain'});
+    saveAs (blob, "test.dxf");
   }
 
   function load( new_positions ) {
