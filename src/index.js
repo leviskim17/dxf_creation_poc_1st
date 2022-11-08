@@ -35,9 +35,9 @@ if (WEBGL.isWebGLAvailable()) {
 
   const params = {
     uniform: true,
-    tension: 0.5,
-    centripetal: true,
-    chordal: true,
+    tension: 0.0,
+    centripetal: false,
+    chordal: false,
     addPoint: addPoint,
     removePoint: removePoint,
     exportSpline: exportSpline
