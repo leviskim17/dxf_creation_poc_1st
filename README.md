@@ -1,13 +1,13 @@
 # DXF-creation-poc-1st
 
-A POC project for testing the possiblity to combine three.js & dxf writer based on Starter project for Three.JS. Configured with Webpack 4 as a bundler.
+A 1st POC project for DXF creation test to combine three.js & "dxf writer" based on Starter project for Three.JS as configured with Webpack 4 as a bundler.
 
 ## Development
 
 Clone the project and install dependencies:
 
 ```bash
-git clone https://github.com/aakatev/https://github.com/leviskim17/dxf_creation_poc_1st.git
+git clone https://github.com/leviskim17/dxf_creation_poc_1st.git
 npm i
 ```
 
